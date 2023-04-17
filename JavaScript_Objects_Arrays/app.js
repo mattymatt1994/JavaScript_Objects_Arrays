@@ -2,120 +2,88 @@ console.log("Hello World!\n==========\n");
 
 // Exercise 1 Section
 
-const numbers = [2, 22, 12, 17, 18, 39, 129];
-function arraySum(arr) {
-  console.log(numbers[0]);
+const arr = [2, 22, 12, 17, 18, 39, 129];
+function arraySum(numbers) {
   let sum = 0;
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-    sum = sum + arr[i];
-    console.log("Sum",sum)
-  }
+  numbers.forEach((number) => {
+    sum = number + sum;
+  });
   return sum;
 }
-console.log(arraySum(numbers));
+console.log(arraySum(arr));
 
 // console.log("EXERCISE 1:\n==========\n");
 
 // // Exercise 2 Section
 //The Great Gatsby
-let Book = {
-  Title: "The Great Gatsby",
-  Author: "F. Scott Fitzgerald",
-  Pages: 208,
-  Read: "4 times",
+const book = {};
+book.title = "The Great Gatsby";
+book.author = "F. Scott Fitzgerald";
+book.pages = 208;
+book.read = "4 times";
+book.info = function () {
+  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read} times`;
 };
-console.log(Book.Author, Book.Pages, Book.Read, Book.Title);
+console.log(book.info());
 
 // //Exercise 3
 
-let sentence = "The quick brown fox jumps over the lazy dog";
+const sentence = "The quick brown fox jumps over the lazy dog";
 
-let words = sentence.split(" ");
-console.log(words)
-let arr = []
+const words = sentence.split(" ");
+console.log(words);
 
-for (let i = 0; i < array.length; i++) {
-  const element = array[i];
+for (let i = 0; i < words.length; i++) {
+  console.log(words[i]);
+  const tempArr = words[i].split("");
+  tempArr.reverse();
+  const tempWord = tempArr.join("");
+  words[i] = tempWord;
+}
+console.log(words);
+const resultSentence = words.join(" ");
+console.log(resultSentence);
+// let tempWord = "";
+// let reversedSentence = "";
+// for (let i = 0; i < sentence.length; i++) {
+//   console.log(sentence[i]);
+//   if (sentence[i] != " ") {
+//     tempWord += sentence[i];
+//   }
+//   if (sentence[i] == " ") {
+//     console.log(tempWord);
+//     let reverseWord = "";
+//     for (let j = tempWord.length; j >= 0; j--) {
+//       reverseWord = tempWord[j];
+//     }
+//     tempWord = "";
+//     console.log(reverseWord);
+//     reversedSentence += reverseWord + " ";
+//   }
+//   if (i == sentence.length - 1){
   
-};
+//     tempWord += sentence[i];
+
+//   }
+
+//console.log(reversedSentence)
 //Exercise 4
+//CSV-Comma Seperated Values
 
 let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
-const stuff = csvData.split("\n");
-let result= [ ];
-let header= stuff[0].split(",");
-console.log(header)
-//console.log(words[0]);
-for (let i = 1; i < stuff.length; i++) {
-  const element = stuff[i];
-  let words2 = stuff[i].split(",");
-let object={
-[header[0]]:words2[0],
-[header[1]]:words2[1]
-
-}
- result.push(object) 
- // console.log(object)
-}
-console.log(result)
+const rows = csvData.split("\n");
+const headers = rows[0].split(",");
+const arrObj = [];
+for (let i = 1; i < rows.length; i++) {
+  const temp = rows[i].split(",");
+  const obj = {
+    name: temp[0],
+    age: temp[1]
+  }
+  arrObj.push(obj);
+  }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// const words = sentence.split(" ");
-// let result = [];
-// console.log(words);
-// for (let i = 0; i < words.length; i++) {
-//     console.log(words[i]);
-//   let letters = words[i].split(" ");
-//   console.log(letters.slice());
-
-//   const lettersReversed = letters.reverse();
-//   const lettersJoined = letters.join();
-//   console.log(lettersJoined);
-
-//   result.push(lettersJoined);
-//   console.log(letters.join(" "));
-// }
-// const finalSentence = result.join(" ");
-
-// console.log(finalSentence);
-
-//Exercise 4
-// let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
-// function parseCSV(startingData) {
-//   console.log(csvData);
-//   const rows = csvData.split("\n");
-//   console.log("Rows", rows);
-//   const headers = rows[0].split(",");
-//   console.log("Headers", headers);
-//   const resultArray = [];
-//   for (let i = 1; i < rows.length; i++) {
-//     const valuesArray = rows[i].split(",");
-//     console.log(valuesArray);
-//     const dataObjects = {
-//       Name: valuesArray[0],
-//       Age: valuesArray[1],
-//     };
-//     const dataObjects = {};
-//     dataObjects[headers[0]]="value"
-//     dataObjects[headers[1]]="something else"
-
-//     resultArray.push(dataObjects);
-//   }
-// }
-// console.log(parseCSV(csvData));
-
+console.log(arrObj);
